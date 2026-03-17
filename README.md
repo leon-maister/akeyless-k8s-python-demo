@@ -10,12 +10,19 @@ This project demonstrates how to authenticate a Python application within Kubern
 | deployment.yaml | Deployment manifest for the application pod. |
 | dockerfile | Builds the application container. |
 
+## ⚠️ Configuration
+Before building the image, open `get_akeyless_secret.py` and set your specific constants:
+- `AKEYLESS_GATEWAY_URL`: Your Gateway address.
+- `ACCESS_ID`: Your Akeyless Access ID.
+- `K8S_AUTH_CONFIG_NAME`: The name of your K8s Auth configuration.
+- `SECRET_NAME`: The path to the secret you want to fetch.
+
 ## 🚀 Quick Start Guide
 
 ### 1. Build and Push the Image
 ```bash
-docker build -t leon-maister/akeyless-k8s-demo:4.3 .
-docker push leon-maister/akeyless-k8s-demo:4.3
+docker build -t leon-maister/akeyless-k8s-demo:5.0 .
+docker push leon-maister/akeyless-k8s-demo:5.0
 ```
 
 ### 2. Environment Setup
