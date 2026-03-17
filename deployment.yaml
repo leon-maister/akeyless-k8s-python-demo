@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: akeyless-kubernetes-authentication-app
+  namespace: akeyless-kubernetes-authentication-demo
+
+spec:
+  replicas: 1
+  # Keep only 1 old replicaSet in history to keep the list clean
+  revisionHistoryLimit: 1
+  
+  selector:
+    matchLabels:
+      app: akeyless-kubernetes-authentication-app
+
+  template:
+    metadata:
+      labels:
+        app: akeyless-kubernetes-authentication-app
+
+    spec:
+      serviceAccountName: akeyless-kubernetes-authentication-sa
+
+      containers:
+      - name: python-app
+        # Update this tag manually to 3.0 or the version you just pushed
+        image: leonmaister/akeyless-kubernetes-authentication-demo:4.3
+        imagePullPolicy: Always
