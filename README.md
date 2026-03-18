@@ -56,4 +56,4 @@ For a successful handshake, ensure your Akeyless K8s Auth Method is configured t
 ---
 **Maintained by**: [leon-maister](https://github.com/leon-maister)
 
-
+<small><sub>/home/keyless/k8s/test_k8s_auth</sub></small>
