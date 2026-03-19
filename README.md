@@ -3,6 +3,13 @@
 ### 🎯 Project Goal
 **The goal of this project is to demonstrate how the **keyless** Akeyless Kubernetes Authentication method works using a Python application as an example. It covers everything from namespace creation to secret retrieval.**
 
+### 🧩 Process Decomposition
+The authentication flow follows these logical steps:
+1. **Identity**: The Pod identifies itself using a Kubernetes ServiceAccount token.
+2. **Handshake**: The Python app sends this token to the Akeyless Gateway.
+3. **Validation**: The Gateway verifies the token with the Kubernetes API server.
+4. **Access**: Upon successful verification, Akeyless provides a temporary access token to fetch secrets.
+
 ## 🛠️ Prerequisites
 Before starting this demo, you must have a functional **Akeyless Kubernetes Auth Method** configured in your Gateway. If you haven't set this up yet, you can use this automation tool:
 - **K8s Auth Setup Tool**: [Kubernetes-Authentication](https://github.com/leon-maister/Kubernetes-Authentication)
