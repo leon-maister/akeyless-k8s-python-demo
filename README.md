@@ -1,4 +1,4 @@
-# Akeyless Kubernetes Authentication Demo
+# Akeyless Kubernetes Authentication & Secret Retrieval (Python)
 
 ### 🎯 Project Goal
 **The goal of this project is to demonstrate how the **keyless** Akeyless Kubernetes Authentication method works using a Python application as an example. It covers everything from namespace creation to secret retrieval.**
