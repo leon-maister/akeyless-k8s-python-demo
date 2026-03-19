@@ -18,7 +18,8 @@
 4. **Secret Access**: Upon successful auth, Akeyless returns the secret value to the application.
 
 ## 🛠️ Prerequisites
-Before starting this demo, you must have a functional **Akeyless Kubernetes Auth Method** configured in your Gateway.
+Before starting this demo, you must have a functional **Akeyless Kubernetes Auth Method** configured in your Gateway. If you haven't set this up yet, you can use this automation tool:
+- **K8s Auth Setup Tool**: [Kubernetes-Authentication](https://github.com/leon-maister/Kubernetes-Authentication)
 
 ## 📂 File Descriptions
 | File | Function |
@@ -29,7 +30,12 @@ Before starting this demo, you must have a functional **Akeyless Kubernetes Auth
 | dockerfile | Builds the application container. |
 
 ## ⚠️ Configuration
-Before building the image, open `get_akeyless_secret.py` and set your constants.
+Before building the image, you must configure the following variables inside `get_akeyless_secret.py`:
+
+- `AKEYLESS_GATEWAY_URL`: Your Akeyless Gateway address (e.g., `https://your-gw.akeyless.fans`).
+- `ACCESS_ID`: The Access ID of your **Kubernetes Auth Method**.
+- `K8S_AUTH_CONFIG_NAME`: The name of the K8s Auth configuration on the Gateway.
+- `SECRET_NAME`: The full path of the secret you want to retrieve.
 
 ## 👩‍💻 For Developer
 ### Build and Push the Image
@@ -41,14 +47,22 @@ docker push leon-maister/akeyless-k8s-demo:5.0
 ## 🚀 Quick Start Guide
 
 ### 1. Environment Setup
+Run these commands to prepare your cluster:
 ```bash
+# Create namespace if it doesn't exist
 kubectl create namespace akeyless-kubernetes-authentication-demo --dry-run=client -o yaml | kubectl apply -f -
+
+# Apply ServiceAccount
 kubectl apply -f serviceaccount.yaml
 ```
 
 ### 2. Deploy and Verify
+Run these commands to launch and check:
 ```bash
+# Launch the application
 kubectl apply -f deployment.yaml
+
+# Check the results in logs
 kubectl logs -f deployment/akeyless-kubernetes-authentication-app -n akeyless-kubernetes-authentication-demo
 ```
 
