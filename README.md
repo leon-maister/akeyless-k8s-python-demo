@@ -4,11 +4,18 @@
 **The goal of this project is to demonstrate how the **keyless** Akeyless Kubernetes Authentication method works using a Python application as an example. It covers everything from namespace creation to secret retrieval.**
 
 ### 🧩 Process Decomposition
-The authentication flow follows these logical steps:
-1. **Identity**: The Pod identifies itself using a Kubernetes ServiceAccount token.
-2. **Handshake**: The Python app sends this token to the Akeyless Gateway.
-3. **Validation**: The Gateway verifies the token with the Kubernetes API server.
-4. **Access**: Upon successful verification, Akeyless provides a temporary access token to fetch secrets.
+
+#### Phase 1: Deployment & Infrastructure
+1. **Namespace & Identity**: A dedicated namespace and ServiceAccount are created to provide a secure boundary.
+2. **Image Pull**: Kubernetes pulls the Python-based Docker image from the registry.
+3. **Pod Initialization**: The Deployment orchestrates the rollout of the Pod, mounting the ServiceAccount token automatically.
+4. **Runtime**: The Alpine-based Python container starts and prepares to execute the script.
+
+#### Phase 2: Application Logic
+1. **Token Retrieval**: The Python script reads the Kubernetes JWT token from the local filesystem.
+2. **Handshake**: The app sends a Base64-encoded version of this token to the Akeyless Gateway.
+3. **Validation**: The Gateway verifies the identity via the Kubernetes API server using the pre-configured trust.
+4. **Secret Access**: Upon successful auth, Akeyless returns the secret value to the application.
 
 ## 🛠️ Prerequisites
 Before starting this demo, you must have a functional **Akeyless Kubernetes Auth Method** configured in your Gateway. If you haven't set this up yet, you can use this automation tool:
