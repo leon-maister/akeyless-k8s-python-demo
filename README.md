@@ -1,6 +1,6 @@
 # Akeyless Kubernetes Authentication Demo
 
-Цель проекта продемонстрировать как работает Akeyless Kubernetes Authentication method на примере Python application. It covers everything from namespace creation to secret retrieval.
+The goal of this project is to demonstrate how the Akeyless Kubernetes Authentication method works using a Python application as an example. It covers everything from namespace creation to secret retrieval.
 
 ## 🛠️ Prerequisites
 Before starting this demo, you must have a functional **Akeyless Kubernetes Auth Method** configured in your Gateway. If you haven't set this up yet, you can use this automation tool:
