@@ -48,7 +48,7 @@ docker push leonmaister/akeyless-k8s-python-demo:1.0
 ### 1. Environment Setup
 ```bash
 # Create namespace
-kubectl create namespace akeyless-kubernetes-authentication-demo --dry-run=client -o yaml | kubectl apply -f -
+kubectl create namespace akeyless-k8s-python-demo --dry-run=client -o yaml | kubectl apply -f -
 
 # Apply ServiceAccount
 kubectl apply -f serviceaccount.yaml
@@ -60,12 +60,12 @@ kubectl apply -f serviceaccount.yaml
 kubectl apply -f job.yaml
 
 # Check the results in logs
-kubectl logs -l job-name=akeyless-retrieval-job -n akeyless-kubernetes-authentication-demo
+kubectl logs -l job-name=akeyless-retrieval-job -n akeyless-k8s-python-demo
 ```
 
 ## ⚙️ Akeyless Configuration
 Ensure your Akeyless K8s Auth Method trusts:
-- **Namespace**: `akeyless-kubernetes-authentication-demo`
+- **Namespace**: `akeyless-k8s-python-demo`
 - **ServiceAccount**: `akeyless-kubernetes-authentication-sa`
 
 ---
