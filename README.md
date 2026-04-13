@@ -39,8 +39,8 @@ Before building the image, configure variables inside `get_akeyless_secret.py`:
 ## 👩‍💻 For Developer
 ### Build and Push the Image
 ```bash
-docker build -t leonmaister/akeyless-kubernetes-authentication-demo:5.1 .
-docker push leonmaister/akeyless-kubernetes-authentication-demo:5.1
+docker build -t leonmaister/akeyless-k8s-python-demo:1.0 .
+docker push leonmaister/akeyless-k8s-python-demo:1.0
 ```
 
 ## 🚀 Quick Start Guide
