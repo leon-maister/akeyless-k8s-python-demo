@@ -3,7 +3,7 @@ import os
 import sys
 import base64
 
-# --- CONFIGURATION CONSTANTS ---
+# --- CONFIGURATION CONSTANTS ----
 AKEYLESS_GATEWAY_URL = "https://gw-gke.lm.cs.akeyless.fans"
 AUTH_URL = f"{AKEYLESS_GATEWAY_URL}/api/v2/auth"
 GET_SECRET_URL = f"{AKEYLESS_GATEWAY_URL}/api/v2/get-secret-value"
@@ -16,7 +16,7 @@ TOKEN_PATH = "/var/run/secrets/kubernetes.io/serviceaccount/token"
 # -------------------------------
 
 def get_akeyless_token():
-    print(f"--- Akeyless Auth & Secret Fetch (v5.0) ---")
+    print(f"--- Akeyless Auth & Secret Fetch (v5.1) ---")
     
     if not os.path.exists(TOKEN_PATH):
         print(f"ERROR: Token not found at {TOKEN_PATH}")

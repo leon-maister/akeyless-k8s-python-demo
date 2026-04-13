@@ -23,5 +23,5 @@ spec:
 
       containers:
       - name: python-app
-        image: leonmaister/akeyless-kubernetes-authentication-demo:5.0
+        image: leonmaister/akeyless-kubernetes-authentication-demo:5.1
         imagePullPolicy: Always
