@@ -66,7 +66,7 @@ kubectl logs -l job-name=akeyless-retrieval-job -n akeyless-k8s-python-demo
 ## ⚙️ Akeyless Configuration
 Ensure your Akeyless K8s Auth Method trusts:
 - **Namespace**: `akeyless-k8s-python-demo`
-- **ServiceAccount**: `akeyless-kubernetes-authentication-sa`
+- **ServiceAccount**: `akeyless-python-sa`
 
 ---
 **Maintained by**: [leon-maister](https://github.com/leon-maister)
