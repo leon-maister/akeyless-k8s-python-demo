@@ -63,6 +63,13 @@ kubectl apply -f job.yaml
 kubectl logs -l job-name=akeyless-retrieval-job -n akeyless-k8s-python-demo
 ```
 
+### 🔄 Rerunning the Job
+To run the secret retrieval again, you must delete the previous Job:
+```bash
+kubectl delete -f job.yaml
+kubectl apply -f job.yaml
+```
+
 ## ⚙️ Akeyless Configuration
 Ensure your Akeyless K8s Auth Method trusts:
 - **Namespace**: `akeyless-k8s-python-demo`
