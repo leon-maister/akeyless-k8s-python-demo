@@ -78,4 +78,4 @@ Ensure your Akeyless K8s Auth Method trusts:
 ---
 **Maintained by**: [leon-maister](https://github.com/leon-maister)
 
-<sub style="color: gray;">/home/keyless/k8s/akeyless-k8s-python-demo</sub>
+<sub style="color: gray;">/home/keyless/k8s/akeyless-k8s-python-demo | vcluster_my-vcluster_leon_gke_customer-success-391112_us-central1_customer-success-391112-gke-sandbox</sub>
