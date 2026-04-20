@@ -19,6 +19,16 @@ TOKEN_PATH = "/var/run/secrets/kubernetes.io/serviceaccount/token"
 # -------------------------------
 
 def fetch_secret_with_sdk():
+    pod_name = os.getenv('HOSTNAME', 'unknown-pod')
+    
+    print(f"--- Config INFO ---")
+    print(f"Target Gateway: {AKEYLESS_GATEWAY_URL}")
+    print(f"Access ID:      {ACCESS_ID}")
+    print(f"Auth Config:    {K8S_AUTH_CONFIG_NAME}")
+    print(f"Target Secret:  {SECRET_NAME}")
+    print(f"Running in Pod: {pod_name}")
+    print(f"----------------------\n", flush=True)
+
     print(f"--- Akeyless Auth & Secret Fetch (Python SDK v2.4) ---")
 
     # 1. Check if the Kubernetes ServiceAccount token exists
