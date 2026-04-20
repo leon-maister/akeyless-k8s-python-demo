@@ -9,7 +9,7 @@ spec:
       serviceAccountName: akeyless-python-sa
       containers:
       - name: python-app
-        image: leonmaister/akeyless-k8s-python-demo:1.0
+        image: leonmaister/akeyless-k8s-python-demo:2.0-sdk
         imagePullPolicy: Always
       restartPolicy: Never 
   backoffLimit: 2 
