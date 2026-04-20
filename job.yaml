@@ -7,9 +7,34 @@ spec:
   template:
     spec:
       serviceAccountName: akeyless-python-sa
+      # Настройки безопасности для всего Пода
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000
+        # Добавляем групповой ID, часто требуется политиками
+        fsGroup: 2000
       containers:
       - name: python-app
-        image: leonmaister/akeyless-k8s-python-demo:2.0-sdk
+        image: leonmaister/akeyless-k8s-python-demo:2.4-sdk
         imagePullPolicy: Always
-      restartPolicy: Never 
-  backoffLimit: 2 
+        resources:
+          limits:
+            cpu: "100m"
+            memory: "128Mi"
+          requests:
+            cpu: "50m"
+            memory: "64Mi"
+        # Настройки безопасности конкретно для контейнера
+        securityContext:
+          allowPrivilegeEscalation: false
+          # Явно отключаем все возможности root
+          capabilities:
+            drop:
+              - ALL
+          # Повторяем здесь для надежности
+          runAsNonRoot: true
+          runAsUser: 1000
+          # Режим только для чтения для корневой ФС (хорошая практика)
+          readOnlyRootFilesystem: false 
+      restartPolicy: Never
+  backoffLimit: 2
